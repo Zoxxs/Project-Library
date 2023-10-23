@@ -5,10 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div>Library</div>
-  <div>Books</div>
+  <div class="container">
+    <header>
+      <h1>Library</h1>
+    </header>
+    <main>
+      <form>
+        <div>
+          <label for="book-name">Book</label>
+          <input type="text" name="book-name" id="book-name">
+        </div>
+        <div>
+          <label for="book-author">Author</label>
+          <input type="text" name="book-author" id="book-author">
+        </div>
+        <div>
+          <label for="pages">Pages</label>
+          <input type="text" name="pages" id="pages">
+        </div>
+        <button type="submit" class="submit">+ Add Book</button>
+      </form>
+      <div class="book-display"></div>
+    </main>
+    <footer>
+      <p>Copyright &copy Zoka 2023</p>
+      <a href="https://github.com/Zoxxs">
+        <i class="fa fa-github"></i>
+      </a>
+    </footer>
+  </div>
 </body>
 </html>
