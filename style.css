@@ -17,7 +17,7 @@ body {
   flex-direction: column;
 }
 
-button {
+.add-book {
   border: none;
   border-radius: 8px;
   background-color: #e2e8f0;
@@ -28,7 +28,7 @@ button {
   padding: 1rem;
 }
 
-button:hover {
+.add-book:hover {
   background-color: #cbd5e1;
 }
 
