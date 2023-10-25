@@ -16,17 +16,26 @@
     </header>
     <main>
       <form action="" class="form">
-        <div>
-          <label for="book-name">Book</label>
-          <input type="text" name="book-name" id="book-name">
-        </div>
-        <div>
-          <label for="book-author">Author</label>
-          <input type="text" name="book-author" id="book-author">
-        </div>
-        <div>
-          <label for="pages">Pages</label>
-          <input type="text" name="pages" id="pages">
+        <div class="form-container">
+          <div class="inputs">
+            <label for="book-name">Book</label>
+            <input type="text" name="book-name" id="book-name">
+          </div>
+          <div class="inputs">
+            <label for="book-author">Author</label>
+            <input type="text" name="book-author" id="book-author">
+          </div>
+          <div class="inputs">
+            <label for="pages">Pages</label>
+            <input type="text" name="pages" id="pages">
+          </div>
+          <div class="inputs">
+            <label for="status">Status</label>
+            <select name="status" id="status">
+              <option value="read">Read</option>
+              <option value="no read">Not read</option>
+            </select>
+          </div>
         </div>
         <button class="add-book">+ Add Book</button>
       </form>
