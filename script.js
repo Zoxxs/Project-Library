@@ -16,6 +16,7 @@ function Book(title, author, pages, read) {
 // User Interface
 
 const bookGrid = document.querySelector('.book-grid');
+const bookStatus = document.querySelector('#status');
 
 const theHobbit = new Book(`The Hobbit`, `J.R.R. Tolkien`, 295, "yep")
 
@@ -34,7 +35,7 @@ const addNewBook = (e) => {
   e.preventDefault();
   const newBook = getBookFromInput();
   addBookToLibrary(newBook);
-  console.log(myLibrary);
+  createBookCard(newBook);
 }
 
 const form = document.querySelector('form');
@@ -52,6 +53,7 @@ function createBookCard(book) {
   bookName.textContent = `${book.title}`;
   bookAuthor.textContent = book.author;
   bookPages.textContent = book.pages;
+  bookReadStatus.textContent = bookStatus.value;
 
   bookGrid.appendChild(bookCard);
   bookCard.appendChild(bookName);
