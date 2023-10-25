@@ -1,3 +1,5 @@
+// Data structures
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -10,6 +12,10 @@ function Book(title, author, pages, read) {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}`;
   }
 }
+
+// User Interface
+
+const bookGrid = document.querySelector('.book-grid');
 
 const theHobbit = new Book(`The Hobbit`, `J.R.R. Tolkien`, 295, "yep")
 
@@ -33,3 +39,23 @@ const addNewBook = (e) => {
 
 const form = document.querySelector('form');
 form.addEventListener('submit', addNewBook);
+
+function createBookCard(book) {
+  const bookCard = document.createElement('div');
+  const bookName = document.createElement('p');
+  const bookAuthor = document.createElement('p');
+  const bookPages = document.createElement('p');
+  const bookReadStatus = document.createElement('button');
+
+  bookCard.classList.add('single-book');
+
+  bookName.textContent = `${book.title}`;
+  bookAuthor.textContent = book.author;
+  bookPages.textContent = book.pages;
+
+  bookGrid.appendChild(bookCard);
+  bookCard.appendChild(bookName);
+  bookCard.appendChild(bookAuthor);
+  bookCard.appendChild(bookPages);
+  bookCard.appendChild(bookReadStatus);
+}

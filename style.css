@@ -96,7 +96,7 @@ footer > a:active {
   color: #f1f5f9;
 }
 
-.book-display {
+.book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
