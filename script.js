@@ -61,3 +61,15 @@ function createBookCard(book) {
   bookCard.appendChild(bookPages);
   bookCard.appendChild(bookReadStatus);
 }
+
+function changeStatus(book) {
+  if (myLibrary[book].read == 'Read') {
+    return myLibrary[book].read = 'Not read';
+  } else {
+    return myLibrary[book].read = 'Read';
+  }
+}
+
+function deleteBook(book) {
+  myLibrary.splice(book, book +1);
+}
