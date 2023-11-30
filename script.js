@@ -1,6 +1,5 @@
 // Data structures
 
-const myLibrary = [];
 
 class Book {
   constructor(
@@ -16,6 +15,18 @@ class Book {
   }
 }
 
+class Library {
+  constructor() {
+    this.books = [];
+  }
+
+  addBook(newBook) {
+    this.books.push(newBook);
+  }
+}
+
+const library = new Library();
+
 // User Interface
 
 const bookGrid = document.querySelector('.book-grid');
@@ -24,7 +35,7 @@ const bookStatus = document.querySelector('#status');
 const theHobbit = new Book(`The Hobbit`, `J.R.R. Tolkien`, 295, "yep")
 
 function addBookToLibrary(newBook) {
-  myLibrary.push(newBook);
+  library.push(newBook);
 }
 
 const getBookFromInput = () => {
@@ -37,13 +48,19 @@ const getBookFromInput = () => {
 const addNewBook = (e) => {
   e.preventDefault();
   const newBook = getBookFromInput();
-  addBookToLibrary(newBook);
+  library.addBook(newBook);
   printMyLibrary();
 }
 
 function printMyLibrary() {
-  const lastBookAdded = myLibrary[myLibrary.length -1]
-  createBookCard(lastBookAdded);
+  resetBookGrid();
+  for (let book of library.books) {
+    createBookCard(book);
+  }
+}
+
+function resetBookGrid() {
+  bookGrid.innerHTML = '';
 }
 
 const form = document.querySelector('form');
@@ -68,13 +85,13 @@ function createBookCard(book) {
 }
 
 function changeStatus(book) {
-  if (myLibrary[book].read == 'Read') {
-    return myLibrary[book].read = 'Not read';
+  if (library[book].read == 'Read') {
+    return library[book].read = 'Not read';
   } else {
-    return myLibrary[book].read = 'Read';
+    return library[book].read = 'Read';
   }
 }
 
 function deleteBook(book) {
-  myLibrary.splice(book, book +1);
+  library.splice(book, book +1);
 }
