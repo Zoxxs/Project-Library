@@ -76,15 +76,18 @@ function createBookCard(book) {
   const bookAuthor = document.createElement('p');
   const bookPages = document.createElement('p');
   const bookReadStatus = document.createElement('button');
+  const deleteBookButton = document.createElement('button');
 
   bookCard.classList.add('single-book');
+  deleteBookButton.onclick = removeBook;
 
   bookName.textContent = `${book.title}`;
   bookAuthor.textContent = book.author;
   bookPages.textContent = book.pages;
   bookReadStatus.textContent = bookStatus.value;
+  deleteBookButton.textContent = 'Remove';
 
-  bookCard.append(bookName, bookAuthor, bookPages, bookReadStatus);
+  bookCard.append(bookName, bookAuthor, bookPages, bookReadStatus, deleteBookButton);
   bookGrid.append(bookCard);
 }
 
@@ -96,6 +99,8 @@ function changeStatus(book) {
   }
 }
 
-function deleteBook(book) {
-  library.splice(book, book +1);
+function removeBook(e) {
+  const title = e.target.parentNode.firstChild.innerHTML.replaceAll('"','');
+  library.removeBook(title);
+  printMyLibrary();
 }
