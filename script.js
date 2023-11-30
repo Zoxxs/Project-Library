@@ -2,14 +2,17 @@
 
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;  
-  this.info = function() {
-    let readStatus = this.read ? "read" : "not read yet";
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${readStatus}`;
+class Book {
+  constructor(
+    title = 'Unknown',
+    author = 'Unknown',
+    pages = 0,
+    isRead = false
+  ) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
   }
 }
 
@@ -35,7 +38,12 @@ const addNewBook = (e) => {
   e.preventDefault();
   const newBook = getBookFromInput();
   addBookToLibrary(newBook);
-  createBookCard(newBook);
+  printMyLibrary();
+}
+
+function printMyLibrary() {
+  const lastBookAdded = myLibrary[myLibrary.length -1]
+  createBookCard(lastBookAdded);
 }
 
 const form = document.querySelector('form');
@@ -55,11 +63,8 @@ function createBookCard(book) {
   bookPages.textContent = book.pages;
   bookReadStatus.textContent = bookStatus.value;
 
-  bookGrid.appendChild(bookCard);
-  bookCard.appendChild(bookName);
-  bookCard.appendChild(bookAuthor);
-  bookCard.appendChild(bookPages);
-  bookCard.appendChild(bookReadStatus);
+  bookCard.append(bookName, bookAuthor, bookPages, bookReadStatus);
+  bookGrid.append(bookCard);
 }
 
 function changeStatus(book) {
