@@ -23,6 +23,10 @@ class Library {
   addBook(newBook) {
     this.books.push(newBook);
   }
+
+  removeBook(title) {
+    this.books = this.books.filter(book => book.title !== title)
+  }
 }
 
 const library = new Library();
